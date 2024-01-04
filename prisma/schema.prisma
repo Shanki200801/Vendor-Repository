@@ -59,3 +59,15 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Vendor {
+  id            String      @id @default(cuid())
+  vendor_name   String
+  bank_account_no    String   @unique
+  bank_name     String
+  address1      String
+  address2      String
+  city          String
+  country       String
+  zip_code      String      
+}
