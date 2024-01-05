@@ -37,9 +37,9 @@ export async function getVendors(page: number, pageSize: number) {
   });
 
   // Check if there are no more records to retrieve
-  if (vendors.length === 0) {
-    throw new Error("No more vendors to retrieve");
-  }
+  // if (vendors.length === 0) {
+  //   throw new Error("No more vendors to retrieve");
+  // }
 
   return vendors;
 }

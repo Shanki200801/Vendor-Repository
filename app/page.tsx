@@ -1,26 +1,34 @@
 //The below page is the home page of the website, where information about the website is displayed
 
 import Card from "@/components/home/card";
-import { Github, Twitter } from "@/components/shared/icons";
-import WebVitals from "@/components/home/web-vitals";
-import ComponentGrid from "@/components/home/component-grid";
 import Image from "next/image";
-import { nFormatter } from "@/lib/utils";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+
 export default async function Home() {
   //route the user to /demo.tsx if they are logged in
-  const { data: session } = useSession();
-  const router = useRouter();
+  const session = await getServerSession(authOptions);
   if (session) {
-    router.push("/demo");
+    redirect("/demo");
   }
+
   return (
-    <div className="text-black">
-      <div>Home page</div>
-      <div>Login to continue</div>
-      <div>
-        This page provides you a demo app for using vercel postgress and prisma
+    <div className="z-10 text-black">
+      <h1 className="z-20  bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-4xl font-bold  drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]">
+        Welcome to Vendor Repository
+      </h1>
+      <p className="z-20 mx-8 my-12 text-center text-2xl font-bold">
+        This web application provides you with a centralised storage of all
+        imformation regarding your vendors
+      </p>
+      <div className="z-20 mx-8 text-center text-2xl font-semibold italic">
+        <p>
+          This page provides you a demo app for using vercel postgress and
+          prisma
+        </p>
+        <p>SignIn to get Started</p>
       </div>
     </div>
   );
