@@ -89,3 +89,13 @@ export async function getVendor(id: string) {
 
   return vendor;
 }
+
+export async function getVendorId(bank_account_no: string) {
+  const vendor = await prisma.vendor.findUnique({
+    where: {
+      bank_account_no: bank_account_no,
+    },
+  });
+
+  return vendor?.id;
+}
