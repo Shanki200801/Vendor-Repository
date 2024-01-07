@@ -14,9 +14,9 @@ export const addVendor = async (
   await prisma.vendor.create({
     data: {
       vendor_name: vendor_name,
-      address1: address1,
-      address2: address2,
-      bank_account_no: bank_account_no,
+      vendor_address1: address1,
+      vendor_address2: address2,
+      bank_account_number: bank_account_no,
       bank_name: bank_name,
       city: city,
       country: country,
@@ -69,9 +69,9 @@ export async function updateVendor(
     },
     data: {
       vendor_name: vendor_name,
-      address1: address1,
-      address2: address2,
-      bank_account_no: bank_account_no,
+      vendor_address1: address1,
+      vendor_address2: address2,
+      bank_account_number: bank_account_no,
       bank_name: bank_name,
       city: city,
       country: country,
@@ -93,7 +93,7 @@ export async function getVendor(id: string) {
 export async function getVendorId(bank_account_no: string) {
   const vendor = await prisma.vendor.findUnique({
     where: {
-      bank_account_no: bank_account_no,
+      bank_account_number: bank_account_no,
     },
   });
 
