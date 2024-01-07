@@ -48,12 +48,12 @@ CREATE TABLE "VerificationToken" (
 CREATE TABLE "Vendor" (
     "id" TEXT NOT NULL,
     "vendor_name" TEXT NOT NULL,
-    "bank_account_no" TEXT NOT NULL,
+    "vendor_address1" TEXT NOT NULL,
+    "vendor_address2" TEXT NOT NULL,
+    "bank_account_number" TEXT NOT NULL,
     "bank_name" TEXT NOT NULL,
-    "address1" TEXT NOT NULL,
-    "address2" TEXT NOT NULL,
-    "city" TEXT NOT NULL,
     "country" TEXT NOT NULL,
+    "city" TEXT NOT NULL,
     "zip_code" TEXT NOT NULL,
 
     CONSTRAINT "Vendor_pkey" PRIMARY KEY ("id")
@@ -81,7 +81,7 @@ CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken"("token"
 CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Vendor_bank_account_no_key" ON "Vendor"("bank_account_no");
+CREATE UNIQUE INDEX "Vendor_bank_account_number_key" ON "Vendor"("bank_account_number");
 
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -5,8 +5,7 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 import { Button, Table, Dialog } from "@radix-ui/themes";
 import { getVendors, updateVendor, deleteVendor } from "@/lib/prisma-queries";
 import { getSession } from "next-auth/react";
-
-import AddVendor from "./add-vendor";
+import VendorTable from "./table";
 
 const Page = async () => {
   const session = await getServerSession(authOptions);
@@ -15,11 +14,11 @@ const Page = async () => {
   }
 
   return (
-    <div className="z-10 text-black">
-      <div className="flex flex-row">
-        <h1>Vendor Table</h1>
-        <AddVendor />
-      </div>
+    <div className="z-10 flex flex-col items-center gap-6 text-black">
+      <h1 className="font-display text-3xl font-semibold tracking-[0.01em]">
+        Vendor Table
+      </h1>
+      <VendorTable />
     </div>
   );
 };
