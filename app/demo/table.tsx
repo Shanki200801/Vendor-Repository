@@ -73,7 +73,7 @@ export default async function VendorTable() {
           <li className="col-span-2">Modifications</li>
         </ul>
         <ul className="grid auto-rows-auto grid-cols-5 items-center border border-black/20 border-t-black/40 text-center">
-          {vendors.map((vendor) => (
+          {vendors.map((vendor: any) => (
             <TableElement
               key={vendor.id}
               vendor_name={vendor.vendor_name}
