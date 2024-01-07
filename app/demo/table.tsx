@@ -4,7 +4,15 @@ import { getServerSideProps } from "next/dist/build/templates/pages";
 
 // add your table items dynamically through this element
 // add props or whatever later
-const TableElement = ({ vendor_name, bank_account_number, bank_name }) => {
+const TableElement = ({
+  vendor_name,
+  bank_account_number,
+  bank_name,
+}: {
+  vendor_name: string;
+  bank_account_number: string;
+  bank_name: string;
+}) => {
   return (
     <>
       <li className="col-start-1 border-b border-r border-b-black/10 border-r-black/30 py-2">
