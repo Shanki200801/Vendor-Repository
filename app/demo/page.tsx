@@ -6,6 +6,7 @@ import { Button, Table, Dialog } from "@radix-ui/themes";
 import { getVendors, updateVendor, deleteVendor } from "@/lib/prisma-queries";
 import { getSession } from "next-auth/react";
 import VendorTable from "./table";
+import TableWrapper from "./tablewrapper";
 
 const Page = async () => {
   const session = await getServerSession(authOptions);
@@ -18,7 +19,7 @@ const Page = async () => {
       <h1 className="font-display text-3xl font-semibold tracking-[0.01em]">
         Vendor Table
       </h1>
-      <VendorTable />
+      <TableWrapper />
     </div>
   );
 };

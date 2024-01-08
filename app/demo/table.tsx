@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import AddVendor from "./add-vendor";
 import { getServerSideProps } from "next/dist/build/templates/pages";
@@ -34,25 +35,11 @@ const TableElement = ({
   );
 };
 
-export default async function VendorTable() {
-  //Make an API request to get vendor count
-  const countResponse = await fetch("/api/getvendorcount", {
-    method: "GET",
-    headers: {},
-  });
-  //Make a GET request to the API to api/getvendors to get all vendors details
-  const response = await fetch("/api/getvendors", {
-    method: "GET",
-    headers: {},
-  });
-
-  const vendors = await response.json();
-  const count = await countResponse.json();
+export default async function VendorTable(vendors: any) {
   console.log("Vendors", vendors);
-  console.log("Count", count);
-
+  vendors = vendors.vendors;
   return (
-    <section id="vendor-table" className="flex w-[60vw] flex-col font-default">
+    <section id="vendor-table" className="font-default flex w-[60vw] flex-col">
       <div className="grid grid-cols-5 items-center justify-between p-2 tracking-tight">
         <p className="col-start-1 justify-self-start">Listed Vendors</p>
         <p className="col-start-5 justify-self-end">
