@@ -12,7 +12,7 @@ const nextConfig = {
     return [
       {
         source: "/github",
-        destination: "https://github.com/steven-tey/precedent",
+        destination: "https://github.com/Shanki200801/vendor-repository",
         permanent: false,
       },
     ];
