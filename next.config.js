@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    NEXT_PUBLIC_NEXTAPP_URL: "http://localhost:3000",
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
