@@ -11,12 +11,12 @@ export default async function Home() {
   //route the user to /demo.tsx if they are logged in
   const session = await getServerSession(authOptions);
   if (session) {
-    redirect("/demo");
+    redirect("/demo2");
   }
 
   return (
     <div className="z-10 text-black">
-      <h1 className="z-20  bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center font-display text-4xl font-bold  drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]">
+      <h1 className="font-display  z-20 bg-gradient-to-br from-black to-stone-500 bg-clip-text text-center text-4xl font-bold  drop-shadow-sm [text-wrap:balance] md:text-7xl md:leading-[5rem]">
         Welcome to Vendor Repository
       </h1>
       <p className="z-20 mx-8 my-12 text-center text-2xl font-bold">
