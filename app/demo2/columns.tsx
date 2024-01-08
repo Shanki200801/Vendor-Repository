@@ -59,23 +59,26 @@ const fndeleteVendor = async (id: String) => {
 const fnEditVendor = async (vendor: any) => {
   console.log("Editing vendor...", vendor);
 
-  const response = await fetch(`${env.NEXTAPP_URL}/api/updatevendor`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `${env.NEXT_PUBLIC_NEXTAPP_URL}/api/updatevendor`,
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: vendor.id,
+        vendor_name: vendor.vendor_name,
+        vendor_address1: vendor.vendor_address1,
+        vendor_address2: vendor.vendor_address2,
+        bank_account_number: vendor.bank_account_number,
+        bank_name: vendor.bank_name,
+        country: vendor.country,
+        city: vendor.city,
+        zip_code: vendor.zip_code,
+      }),
     },
-    body: JSON.stringify({
-      id: vendor.id,
-      vendor_name: vendor.vendor_name,
-      vendor_address1: vendor.vendor_address1,
-      vendor_address2: vendor.vendor_address2,
-      bank_account_number: vendor.bank_account_number,
-      bank_name: vendor.bank_name,
-      country: vendor.country,
-      city: vendor.city,
-      zip_code: vendor.zip_code,
-    }),
-  });
+  );
   window.location.reload();
 };
 
