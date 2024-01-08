@@ -105,7 +105,7 @@ const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
       bank_name: bank_name,
     };
     console.log("vendor is being added", vendor);
-    const res = await fetch(`${env.NEXTAPP_URL}/api/addvendor`, {
+    const res = await fetch(`${process.env.NEXTAPP_URL}/api/addvendor`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

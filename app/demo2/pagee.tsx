@@ -20,10 +20,13 @@ export default function DemoPage(initialdata: any) {
   const [data, setData] = useState(initialdata.initialdata);
 
   const fetchData = async () => {
-    const response = await fetch(`${env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`, {
-      method: "GET",
-      headers: {},
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`,
+      {
+        method: "GET",
+        headers: {},
+      },
+    );
     const data = await response.json();
     setData(data);
   };

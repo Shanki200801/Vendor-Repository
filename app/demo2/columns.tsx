@@ -60,7 +60,7 @@ const fnEditVendor = async (vendor: any) => {
   console.log("Editing vendor...", vendor);
 
   const response = await fetch(
-    `${env.NEXT_PUBLIC_NEXTAPP_URL}/api/updatevendor`,
+    `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/updatevendor`,
     {
       method: "PUT",
       headers: {
