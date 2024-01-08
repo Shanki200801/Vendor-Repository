@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Vendor, columns } from "./columns";
 import { DataTable } from "./data-table";
 import TableHeaderRow from "./tableheader";
-import { env } from "process";
 
 // async function getData(): Promise<Vendor[]> {
 //   // Fetch data from your API here.
@@ -34,6 +33,8 @@ export default function DemoPage(initialdata: any) {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const doNothing = () => {};
   return (
     <div className=" mx-12 flex w-full flex-col items-center px-2 ">
       <TableHeaderRow onDatachange={fetchData} />

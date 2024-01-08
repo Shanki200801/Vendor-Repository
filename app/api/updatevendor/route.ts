@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 export async function PUT(req: Request) {
   const data = await req.json();
   const { id } = data;
-  console.log(data, "api request made and inside body");
+  // console.log(data, "api request made and inside body");
 
   const vendor = await prisma.vendor.update({
     where: {

@@ -15,7 +15,7 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog";
-import { env } from "process";
+
 const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
   const [vendor_name, setVendorName] = useState("");
   const [vendor_address1, setVendorAddress1] = useState("");
@@ -105,13 +105,16 @@ const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
       bank_name: bank_name,
     };
     console.log("vendor is being added", vendor);
-    const res = await fetch(`${process.env.NEXTAPP_URL}/api/addvendor`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/addvendor`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(vendor),
       },
-      body: JSON.stringify(vendor),
-    });
+    );
     const data = await res.json();
     console.log("data", data);
     onDatachange();
