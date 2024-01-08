@@ -16,6 +16,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { DialogClose } from "@radix-ui/react-dialog";
+import { env } from "process";
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Vendor = {
@@ -58,7 +59,7 @@ const fndeleteVendor = async (id: String) => {
 const fnEditVendor = async (vendor: any) => {
   console.log("Editing vendor...", vendor);
 
-  const response = await fetch("http://localhost:3000/api/updatevendor", {
+  const response = await fetch(`${env.NEXTAPP_URL}/api/updatevendor`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

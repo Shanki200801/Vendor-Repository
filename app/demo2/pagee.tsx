@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Vendor, columns } from "./columns";
 import { DataTable } from "./data-table";
 import TableHeaderRow from "./tableheader";
+import { env } from "process";
 
 // async function getData(): Promise<Vendor[]> {
 //   // Fetch data from your API here.
@@ -19,7 +20,7 @@ export default function DemoPage(initialdata: any) {
   const [data, setData] = useState(initialdata.initialdata);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/api/getvendors", {
+    const response = await fetch(`${env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`, {
       method: "GET",
       headers: {},
     });
