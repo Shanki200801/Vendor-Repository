@@ -21,7 +21,7 @@ export default async function Home() {
       </h1>
       <p className="z-20 mx-8 my-12 text-center text-2xl font-bold">
         This web application provides you with a centralised storage of all
-        imformation regarding your vendors
+        information regarding your vendors
       </p>
       <div className="z-20 mx-8 text-center text-2xl font-semibold italic">
         <p>
