@@ -19,6 +19,7 @@ export default function DemoPage(initialdata: any) {
   const [data, setData] = useState(initialdata.initialdata);
 
   const fetchData = async () => {
+    console.log("Fetching data...");
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`,
       {

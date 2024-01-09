@@ -78,7 +78,13 @@ const fnEditVendor = async (vendor: any) => {
       }),
     },
   );
-  window.location.reload();
+  if (response.ok) {
+    console.log("Edit vendor finished, reloading");
+
+    window.location.reload();
+  } else {
+    alert("Error in updating vendor");
+  }
 };
 
 const EditVendor = (vendor: any) => {

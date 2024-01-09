@@ -30,15 +30,6 @@ const nextConfig = {
       },
     ];
   },
-  async redirects() {
-    return [
-      {
-        source: "/github",
-        destination: "https://github.com/Shanki200801/vendor-repository",
-        permanent: false,
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
