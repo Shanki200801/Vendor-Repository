@@ -10,10 +10,12 @@ const Page = async () => {
   if (!session) {
     redirect("/");
   }
-  console.log(`${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`);
+  console.log(
+    `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors?${Date.now()}`,
+  );
   const fetchData = async () => {
     const data = await fetch(
-      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`,
+      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors?${Date.now()}`,
       {
         method: "GET",
         headers: {},

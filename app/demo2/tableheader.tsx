@@ -129,7 +129,7 @@ const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
     };
     console.log("vendor is being added", vendor);
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/addvendor`,
+      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/addvendor?${Date.now()}`,
       {
         method: "POST",
         headers: {

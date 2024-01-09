@@ -32,15 +32,18 @@ export type Vendor = {
 
 const fndeleteVendor = async (id: String) => {
   console.log("Deleting vendor...");
-  const response = await fetch("/api/deletevendor", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/deletevendor?${Date.now()}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: id,
+      }),
     },
-    body: JSON.stringify({
-      id: id,
-    }),
-  });
+  );
 
   if (!response.ok) {
     console.error("HTTP error", response.status);
@@ -59,7 +62,7 @@ const fnEditVendor = async (vendor: any) => {
   console.log("Editing vendor...", vendor);
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/updatevendor`,
+    `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/updatevendor?${Date.now()}`,
     {
       method: "PUT",
       headers: {
