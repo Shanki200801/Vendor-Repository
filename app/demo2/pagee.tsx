@@ -34,7 +34,6 @@ export default function DemoPage(initialdata: any) {
     fetchData();
   }, []);
 
-  const doNothing = () => {};
   return (
     <div className=" mx-12 flex w-full flex-col items-center px-2 ">
       <TableHeaderRow onDatachange={fetchData} />

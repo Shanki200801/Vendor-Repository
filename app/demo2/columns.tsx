@@ -117,7 +117,29 @@ const EditVendor = (vendor: any) => {
     bank_account_number,
     bank_name,
   ]);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
+  type Field = {
+    label: string;
+    placeholder: string;
+    required: boolean;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+  const validateField = (field: Field) => {
+    let errors = {} as any;
+
+    // Add your validation logic here
+    if (field.required && !field.value) {
+      errors[field.label] = "This field is required";
+    }
+
+    if (field.label === "Zip Code" && !/^\d{5}$/.test(field.value)) {
+      errors[field.label] = "Invalid zip code";
+    }
+
+    setErrors(errors);
+  };
   const formFields = [
     {
       label: "Vendor Name",
@@ -195,20 +217,28 @@ const EditVendor = (vendor: any) => {
         </DialogHeader>
         <div style={{ maxHeight: "100%", overflow: "auto" }} className="p-4">
           {formFields.map((field, index) => (
-            <div key={index}>
+            <div key={index} className="my-1">
               <p>{field.label}</p>
               <Input
                 placeholder={field.placeholder}
                 required={field.required}
                 value={field.value}
-                onChange={field.onChange}
+                onChange={(e) => {
+                  field.onChange(e);
+                  validateField(field);
+                }}
+                className={errors[field.label] ? "border-red-500" : ""}
               />
             </div>
           ))}
         </div>
         <DialogFooter>
           <DialogClose>
-            <Button type="submit" onClick={() => fnEditVendor(vendor)}>
+            <Button
+              type="submit"
+              disabled={Object.keys(errors).length > 0}
+              onClick={() => fnEditVendor(vendor)}
+            >
               Confirm
             </Button>
           </DialogClose>

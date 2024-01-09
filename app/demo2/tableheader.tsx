@@ -25,6 +25,29 @@ const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
   const [country, setCountry] = useState("");
   const [bank_account_number, setBankAccountNumber] = useState("");
   const [bank_name, setBankName] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  type Field = {
+    label: string;
+    placeholder: string;
+    required: boolean;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  };
+  const validateField = (field: Field) => {
+    let errors = {} as any;
+
+    // Add your validation logic here
+    if (field.required && !field.value) {
+      errors[field.label] = "This field is required";
+    }
+
+    if (field.label === "Zip Code" && !/^\d{5}$/.test(field.value)) {
+      errors[field.label] = "Invalid zip code";
+    }
+
+    setErrors(errors);
+  };
 
   const formFields = [
     {
@@ -143,14 +166,22 @@ const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
                     placeholder={field.placeholder}
                     required={field.required}
                     value={field.value}
-                    onChange={field.onChange}
+                    onChange={(e) => {
+                      field.onChange(e);
+                      validateField(field);
+                    }}
+                    className={errors[field.label] ? "border-red-500" : ""}
                   />
                 </div>
               ))}
             </div>
             <DialogFooter>
               <DialogClose>
-                <Button type="submit" onClick={() => fnAddVendor()}>
+                <Button
+                  type="submit"
+                  disabled={Object.keys(errors).length > 0}
+                  onClick={() => fnAddVendor()}
+                >
                   Confirm
                 </Button>
               </DialogClose>
