@@ -21,7 +21,7 @@ export default function DemoPage(initialdata: any) {
   const fetchData = async () => {
     console.log("Fetching data...");
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors`,
+      `${process.env.NEXT_PUBLIC_NEXTAPP_URL}/api/getvendors?${Date.now()}}`,
       {
         method: "GET",
         headers: {},
