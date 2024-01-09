@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     city,
     zip_code,
   } = data;
-  console.log(data, "api request made and inside body");
+  // console.log(data, "api request made and inside body");
 
   if (
     !vendor_name ||
