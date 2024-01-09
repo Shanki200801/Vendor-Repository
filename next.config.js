@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_NEXTAPP_URL: "https://vendor-repository.vercel.app/",
+    NEXT_PUBLIC_NEXTAPP_URL: "https://vendor-repository.vercel.app",
   },
   reactStrictMode: true,
   swcMinify: true,
