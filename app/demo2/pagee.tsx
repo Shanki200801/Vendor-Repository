@@ -25,6 +25,7 @@ export default function DemoPage(initialdata: any) {
       {
         method: "GET",
         headers: {},
+        cache: "no-store",
       },
     );
     const data = await response.json();

@@ -135,6 +135,7 @@ const TableHeaderRow = ({ onDatachange }: { onDatachange: () => void }) => {
         headers: {
           "Content-Type": "application/json",
         },
+        cache: "no-store",
         body: JSON.stringify(vendor),
       },
     );

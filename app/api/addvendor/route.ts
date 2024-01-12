@@ -18,7 +18,6 @@ export async function POST(req: Request) {
   if (
     !vendor_name ||
     !vendor_address1 ||
-    !vendor_address2 ||
     !bank_account_number ||
     !bank_name ||
     !country ||

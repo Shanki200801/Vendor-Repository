@@ -42,6 +42,7 @@ const fndeleteVendor = async (id: String) => {
       body: JSON.stringify({
         id: id,
       }),
+      cache: "no-store",
     },
   );
 
@@ -79,6 +80,7 @@ const fnEditVendor = async (vendor: any) => {
         city: vendor.city,
         zip_code: vendor.zip_code,
       }),
+      cache: "no-store",
     },
   );
   if (response.ok) {

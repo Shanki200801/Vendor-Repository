@@ -19,6 +19,7 @@ const Page = async () => {
       {
         method: "GET",
         headers: {},
+        cache: "no-store",
       },
     );
     return data.json();
