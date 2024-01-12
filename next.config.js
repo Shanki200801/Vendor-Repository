@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_NEXTAPP_URL: "http://localhost:3000",
+    // NEXT_PUBLIC_NEXTAPP_URL: "http://localhost:3000",
+    NEXT_PUBLIC_NEXTAPP_URL: "https://vendor-repository.vercel.app",
   },
   reactStrictMode: true,
   swcMinify: true,
